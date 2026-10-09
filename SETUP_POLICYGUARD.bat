@@ -23,6 +23,12 @@ $lockHandle = $null
 function Write-JsonFile($value, $target) {
     $value | ConvertTo-Json -Depth 5 | Set-Content -LiteralPath $target -Encoding UTF8
 }
+function Get-SHA256($file) {
+    $stream = [IO.File]::OpenRead($file)
+    $sha = [Security.Cryptography.SHA256]::Create()
+    try { return ([BitConverter]::ToString($sha.ComputeHash($stream))).Replace('-','').ToLowerInvariant() }
+    finally { $sha.Dispose(); $stream.Dispose() }
+}
 function Download-File($uri, $target) {
     for ($attempt = 1; $attempt -le 3; $attempt++) {
         try { Invoke-WebRequest -UseBasicParsing -Uri $uri -OutFile $target -Headers @{ 'User-Agent' = 'PolicyGuard-Windows-Setup' } -TimeoutSec 180; return }
@@ -96,7 +102,7 @@ try {
         $expectedHash = $fields[0]; $filename = $fields[1]
         $archivePath = Join-Path $workRoot $filename
         Download-File "https://nodejs.org/dist/latest-v24.x/$filename" $archivePath
-        if ((Get-FileHash -LiteralPath $archivePath -Algorithm SHA256).Hash -ne $expectedHash) { throw 'Node.js checksum verification failed. The downloaded runtime was not executed.' }
+        if ((Get-SHA256 $archivePath) -ne $expectedHash) { throw 'Node.js checksum verification failed. The downloaded runtime was not executed.' }
         $runtimeArea = Join-Path $installRoot ('runtime/' + [Guid]::NewGuid().ToString('N'))
         New-Item -ItemType Directory -Force -Path (Split-Path $runtimeArea) | Out-Null
         Expand-CheckedZip $archivePath $runtimeArea
@@ -111,7 +117,7 @@ try {
     if ($LASTEXITCODE -ne 0) { throw 'Node.js 24 could not run on this computer.' }
 
     Write-Host '[3/5] Checking and installing project dependencies...'
-    $lockHash = (Get-FileHash -LiteralPath (Join-Path $appRoot 'package-lock.json') -Algorithm SHA256).Hash
+    $lockHash = Get-SHA256 (Join-Path $appRoot 'package-lock.json')
     $dependenciesMarker = Join-Path $installRoot 'dependencies.txt'
     $dependenciesReady = (Test-Path -LiteralPath $dependenciesMarker) -and ((Get-Content -LiteralPath $dependenciesMarker -Raw).Trim() -eq $lockHash) -and (Test-Path -LiteralPath (Join-Path $appRoot 'node_modules/ganache/package.json'))
     Push-Location $appRoot
