@@ -1,0 +1,18 @@
+{
+  "name": "policyguard",
+  "version": "0.2.0",
+  "private": true,
+  "description": "Persistent insurance portals with two linked local Ethereum chains",
+  "scripts": {
+    "start": "node app-server.js",
+    "test": "node --test --test-concurrency=1 test/application.test.js test/launcher.test.js",
+    "test:ui": "node test/portals.cjs",
+    "seed": "node scripts/sample-data.js"
+  },
+  "engines": { "node": ">=24" },
+  "dependencies": {
+    "ethers": "6.15.0",
+    "ganache": "7.9.2",
+    "solc": "0.8.30"
+  }
+}

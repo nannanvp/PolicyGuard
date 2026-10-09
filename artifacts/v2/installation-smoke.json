@@ -1,0 +1,31 @@
+{
+  "date": "2026-10-09T15:20:22.559Z",
+  "sampleCustomerPolicies": 2,
+  "chains": [
+    {
+      "chain": "customer",
+      "chainId": 1337,
+      "head": 119,
+      "recentBlockIntervalsSeconds": [
+        2,
+        2,
+        2
+      ],
+      "contract": "0xdDa4629Dc9150cba3DB2e107040C83ACe03456b6",
+      "linksValid": true
+    },
+    {
+      "chain": "agent",
+      "chainId": 1338,
+      "head": 117,
+      "recentBlockIntervalsSeconds": [
+        2,
+        2,
+        2
+      ],
+      "contract": "0xdDa4629Dc9150cba3DB2e107040C83ACe03456b6",
+      "linksValid": true
+    }
+  ],
+  "financialOrEmploymentActionsSubmitted": 0
+}

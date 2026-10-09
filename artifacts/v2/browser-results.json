@@ -1,0 +1,19 @@
+{
+  "passed": 12,
+  "viewport": "1440x1050",
+  "date": "2026-10-09T15:19:20.231Z",
+  "checks": [
+    "Role-selection landing page and separate authentication routes",
+    "New agent remains pending with no portfolio navigation",
+    "Administrator approves agents and live access updates reach their sessions",
+    "Customer purchases a fixed plan with test balance and sees countdown and assigned agent",
+    "Assigned agent sees read-only customer portfolio",
+    "Sequential premium payment and exact-document integrity verification",
+    "Resignation removes all customer screens in both open tabs and blocks old API routes",
+    "Customer sees replacement contact details and original departed agent",
+    "10% fee, 90% refund and cancellation notifications visible to the current agent",
+    "Both chain explorers show real links, integrity results, receipts and cross-chain references",
+    "Mobile dashboard fits a 390px viewport",
+    "No browser JavaScript errors"
+  ]
+}

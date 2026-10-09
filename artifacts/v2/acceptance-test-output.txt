@@ -1,0 +1,34 @@
+Using µWS fallback implementation due to UWS_USE_FALLBACK environment flag being enabled; performance may be degraded.
+
+
+▶ PolicyGuard persistent application acceptance
+  ✔ logs in the administrator and separates customer / pending agent registration (1247.1775ms)
+  ✔ rejects duplicate usernames, wrong passwords, role confusion and anonymous access (178.6157ms)
+  ✔ rejects cross-site writes and missing CSRF tokens (14.6953ms)
+  ✔ administrator approval becomes employment on both independent chains (1368.8443ms)
+  ✔ purchases a fixed plan, assigns the least-loaded agent, and fixes original terms (2538.2756ms)
+  ✔ prevents cross-customer reads and agent policy mutations, including forged user IDs (406.1377ms)
+  ✔ records sequential premiums and prevents duplicate payment requests (1705.3067ms)
+  ✔ retains all customer policies with their current agent (1217.9453ms)
+  ✔ detects changed policy documents and preserves their recorded hash (513.6954ms)
+  ✔ resignation revokes existing sessions and reassigns customers without changing onboarding history (1367.7912ms)
+  ✔ quotes a 10% cancellation fee, refunds once and notifies the current agent (2254.6577ms)
+  ✔ handles no replacement and assigns awaiting customers when a new agent is approved (2480.0126ms)
+  ✔ rejects direct contract calls from unauthorised accounts and deduplicates source operations (83.6364ms)
+  ✔ shows real blocks, previous/current/next links, receipts and cross-chain references (148.5668ms)
+  ✔ detects corrupted parent links and receipt memberships in independent check inputs (14.1015ms)
+  ✔ preserves accounts, policies, sessions and pending relay jobs through restart without double charging (2260.8733ms)
+  ✔ handles maturity boundaries, outstanding premiums, payment caps and one-time claims (5697.0313ms)
+  ✔ resumes the exact signed source transaction after an interrupted broadcast and restart (2181.0659ms)
+  ✔ keeps rejected applicants out and throttles repeated incorrect passwords (931.7056ms)
+  ✔ fails closed when authoritative agent employment cannot be verified (144.8392ms)
+  ✔ rejects incomplete persisted storage instead of silently resetting it (1.2266ms)
+✔ PolicyGuard persistent application acceptance (30516.7687ms)
+ℹ tests 21
+ℹ suites 1
+ℹ pass 21
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 31085.2203

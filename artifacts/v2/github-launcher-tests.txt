@@ -1,0 +1,39 @@
+Using µWS fallback implementation due to UWS_USE_FALLBACK environment flag being enabled; performance may be degraded.
+
+
+▶ PolicyGuard persistent application acceptance
+  ✔ logs in the administrator and separates customer / pending agent registration (1088.2487ms)
+  ✔ rejects duplicate usernames, wrong passwords, role confusion and anonymous access (131.006ms)
+  ✔ rejects cross-site writes and missing CSRF tokens (2.0711ms)
+  ✔ administrator approval becomes employment on both independent chains (1282.9468ms)
+  ✔ purchases a fixed plan, assigns the least-loaded agent, and fixes original terms (2472.7823ms)
+  ✔ prevents cross-customer reads and agent policy mutations, including forged user IDs (350.2977ms)
+  ✔ records sequential premiums and prevents duplicate payment requests (1499.9055ms)
+  ✔ retains all customer policies with their current agent (1190.4332ms)
+  ✔ detects changed policy documents and preserves their recorded hash (431.5827ms)
+  ✔ resignation revokes existing sessions and reassigns customers without changing onboarding history (1059.9014ms)
+  ✔ quotes a 10% cancellation fee, refunds once and notifies the current agent (1769.8153ms)
+  ✔ handles no replacement and assigns awaiting customers when a new agent is approved (2298.5955ms)
+  ✔ rejects direct contract calls from unauthorised accounts and deduplicates source operations (85.5865ms)
+  ✔ shows real blocks, previous/current/next links, receipts and cross-chain references (76.3133ms)
+  ✔ detects corrupted parent links and receipt memberships in independent check inputs (14.1409ms)
+  ✔ preserves accounts, policies, sessions and pending relay jobs through restart without double charging (2276.9044ms)
+  ✔ handles maturity boundaries, outstanding premiums, payment caps and one-time claims (4932.2051ms)
+  ✔ resumes the exact signed source transaction after an interrupted broadcast and restart (2043.8491ms)
+  ✔ keeps rejected applicants out and throttles repeated incorrect passwords (627.6985ms)
+  ✔ fails closed when authoritative agent employment cannot be verified (115.4721ms)
+  ✔ rejects incomplete persisted storage instead of silently resetting it (0.8551ms)
+✔ PolicyGuard persistent application acceptance (27396.5221ms)
+Using µWS fallback implementation due to UWS_USE_FALLBACK environment flag being enabled; performance may be degraded.
+
+
+This installation is already running: http://127.0.0.1:42100
+✔ desktop launcher identifies and reuses the same installation without exposing profiles or keys (3988.2669ms)
+ℹ tests 22
+ℹ suites 1
+ℹ pass 22
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 35923.6016
